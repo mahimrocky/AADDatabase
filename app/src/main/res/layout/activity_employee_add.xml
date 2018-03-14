@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context="com.aad.databaseforaad.without_room.EmployeeAddActivity">
+
+    <TextView
+        android:id="@+id/text_view_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="5dp"
+        android:text="Employee Name:" />
+
+    <EditText
+        android:id="@+id/edit_text_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text_view_name"
+        android:hint="Employee Name" />
+
+    <TextView
+        android:id="@+id/text_view_age"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edit_text_name"
+        android:paddingLeft="5dp"
+        android:text="Employee Age:" />
+
+    <EditText
+        android:id="@+id/edit_text_age"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text_view_age"
+        android:hint="Employee Age"
+        android:inputType="number" />
+
+    <TextView
+        android:id="@+id/text_view_designation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edit_text_age"
+        android:paddingLeft="5dp"
+        android:text="Employee Designation:" />
+
+    <EditText
+        android:id="@+id/edit_text_designation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text_view_designation"
+        android:hint="Employee Designation" />
+
+</RelativeLayout>
