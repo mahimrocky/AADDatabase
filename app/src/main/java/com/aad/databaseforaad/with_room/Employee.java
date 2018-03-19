@@ -24,6 +24,9 @@ public class Employee {
     @ColumnInfo(name = "designation")
     private String employeeDesignation;
 
+    @ColumnInfo(name = "address")
+    private String employeeAddress;
+
 
     public int getId() {
         return id;
@@ -55,5 +58,13 @@ public class Employee {
 
     public void setEmployeeDesignation(String employeeDesignation) {
         this.employeeDesignation = employeeDesignation;
+    }
+
+    public String getEmployeeAddress() {
+        return employeeAddress;
+    }
+
+    public void setEmployeeAddress(String employeeAddress) {
+        this.employeeAddress = employeeAddress;
     }
 }

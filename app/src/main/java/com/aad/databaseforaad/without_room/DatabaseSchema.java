@@ -26,7 +26,14 @@ public class DatabaseSchema {
         public static final String COLUMN_EMPLOYEE_NAME = "name";
         public static final String COLUMN_EMPLOYEE_AGE = "age";
         public static final String COLUMN_EMPLOYEE_DESIGNATION = "designation";
+        public static final String COLUMN_EMPLOYEE_ADDRESS = "address";
 
+    }
+
+    public static class EmployeeEntry2 implements BaseColumns{
+
+        public static final String TABLE_NAME = "employee2";
+        public static final String COLUMN_EMPLOYEE_SALARY = "salary";
     }
 
 

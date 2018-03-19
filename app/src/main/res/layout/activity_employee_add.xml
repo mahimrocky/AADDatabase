@@ -52,4 +52,35 @@
         android:layout_below="@+id/text_view_designation"
         android:hint="Employee Designation" />
 
+    <TextView
+        android:id="@+id/text_view_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edit_text_designation"
+        android:paddingLeft="5dp"
+        android:text="Employee Address:" />
+
+    <EditText
+        android:id="@+id/edit_text_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text_view_address"
+        android:hint="Employee Address" />
+
+    <TextView
+        android:id="@+id/text_view_salary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edit_text_address"
+        android:paddingLeft="5dp"
+        android:text="Employee Salary:" />
+
+    <EditText
+        android:id="@+id/edit_text_salary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:layout_below="@+id/text_view_salary"
+        android:hint="Employee Salary" />
+
 </RelativeLayout>

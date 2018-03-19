@@ -13,7 +13,7 @@ import com.aad.databaseforaad.R;
 
 public class EmployeeAddActivity extends AppCompatActivity {
 
-    EditText name, age, designation;
+    EditText name, age, designation, address, salary;
 
     boolean isCreate = true; // check for update or create
 
@@ -31,6 +31,8 @@ public class EmployeeAddActivity extends AppCompatActivity {
         name = (EditText) findViewById(R.id.edit_text_name);
         age = (EditText) findViewById(R.id.edit_text_age);
         designation = (EditText) findViewById(R.id.edit_text_designation);
+        address = (EditText) findViewById(R.id.edit_text_address);
+        salary = (EditText) findViewById(R.id.edit_text_salary);
 
         databaseHelper = new DatabaseHelper(this);
 
@@ -51,12 +53,30 @@ public class EmployeeAddActivity extends AppCompatActivity {
 
     private void readSingleData() {
 
-        Cursor cursor = databaseHelper.readSingleItem(id);
+       /* Cursor cursor = databaseHelper.readSingleItem(id);
 
         if (cursor != null && cursor.moveToNext()) {
             name.setText(cursor.getString(0));
             age.setText(String.valueOf(cursor.getInt(1)));
             designation.setText(cursor.getString(2));
+            address.setText(cursor.getString(3));
+            cursor.close();
+        }
+        Cursor cursor2 = databaseHelper.readSalary(id);
+        if (cursor2 != null && cursor2.moveToNext()) {
+            salary.setText(String.valueOf(cursor2.getInt(0)));
+        }*/
+
+
+        Cursor cursor = databaseHelper.readAllData(id);
+
+        if (cursor != null && cursor.moveToNext()) {
+            name.setText(cursor.getString(0));
+            age.setText(String.valueOf(cursor.getInt(1)));
+            designation.setText(cursor.getString(2));
+            address.setText(cursor.getString(3));
+            salary.setText(String.valueOf(cursor.getInt(4)));
+            cursor.close();
         }
     }
 
@@ -77,15 +97,21 @@ public class EmployeeAddActivity extends AppCompatActivity {
             Toast.makeText(this, "Designation cannot be empty", Toast.LENGTH_SHORT).show();
         } else {
 
+            int salaryAmount = Integer.parseInt(salary.getText().toString());
+
             // calling method in database helper
 
             long result = databaseHelper.insertNewItem(name.getText().toString(),
                     Integer.parseInt(age.getText().toString()),
-                    designation.getText().toString());
+                    designation.getText().toString(), address.getText().toString());
 
             if (result > 0) {
-                Toast.makeText(this, "Insert successfully", Toast.LENGTH_SHORT).show();
-                finish();
+                long result2 = databaseHelper.insertSlary((int) result, salaryAmount);
+                if (result2 > 0) {
+                    Toast.makeText(this, "Insert successfully", Toast.LENGTH_SHORT).show();
+                    finish();
+                }
+
             } else {
                 Toast.makeText(this, "An error occurred", Toast.LENGTH_SHORT).show();
             }
@@ -110,7 +136,7 @@ public class EmployeeAddActivity extends AppCompatActivity {
 
             int result = databaseHelper.updateItem(id, name.getText().toString(),
                     Integer.parseInt(age.getText().toString()),
-                    designation.getText().toString());
+                    designation.getText().toString(), address.getText().toString());
 
             if (result > 0) {
                 Toast.makeText(this, "Update successfully", Toast.LENGTH_SHORT).show();
@@ -154,7 +180,7 @@ public class EmployeeAddActivity extends AppCompatActivity {
             case R.id.action_delete:
                 if (!isCreate) {
                     delete();
-                }else{
+                } else {
                     Toast.makeText(this, "You are now creating an item", Toast.LENGTH_SHORT).show();
 
                 }

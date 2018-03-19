@@ -27,6 +27,9 @@ public class EmployeeAddActivity extends AppCompatActivity {
     @BindView(R.id.edit_text_designation)
     EditText designation;
 
+    @BindView(R.id.edit_text_address)
+    EditText address;
+
 
     boolean isCreate = true; // check for update or create
 
@@ -71,6 +74,8 @@ public class EmployeeAddActivity extends AppCompatActivity {
                             name.setText(employeeModel.getEmployeeName());
                             age.setText(String.valueOf(employeeModel.getEmployeeAge()));
                             designation.setText(employeeModel.getEmployeeDesignation());
+                            address.setText(employeeModel.getEmployeeAddress());
+
                         }
                     }
                 });
@@ -102,6 +107,7 @@ public class EmployeeAddActivity extends AppCompatActivity {
             employee.setEmployeeName(name.getText().toString());
             employee.setEmployeeAge(Integer.parseInt(age.getText().toString()));
             employee.setEmployeeDesignation(designation.getText().toString());
+            employee.setEmployeeAddress(address.getText().toString());
 
 
             AsyncTask.execute(new Runnable() {
@@ -147,6 +153,7 @@ public class EmployeeAddActivity extends AppCompatActivity {
             employee.setEmployeeName(name.getText().toString());
             employee.setEmployeeAge(Integer.parseInt(age.getText().toString()));
             employee.setEmployeeDesignation(designation.getText().toString());
+            employee.setEmployeeAddress(address.getText().toString());
 
 
             AsyncTask.execute(new Runnable() {
@@ -184,6 +191,7 @@ public class EmployeeAddActivity extends AppCompatActivity {
         employee.setEmployeeName(name.getText().toString());
         employee.setEmployeeAge(Integer.parseInt(age.getText().toString()));
         employee.setEmployeeDesignation(designation.getText().toString());
+        employee.setEmployeeAddress(address.getText().toString());
 
 
         AsyncTask.execute(new Runnable() {
