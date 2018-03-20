@@ -35,7 +35,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             " (" + EmployeeEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
             EmployeeEntry.COLUMN_EMPLOYEE_NAME + " TEXT," +
             EmployeeEntry.COLUMN_EMPLOYEE_AGE + " INTEGER," +
-            EmployeeEntry.COLUMN_EMPLOYEE_DESIGNATION + " TEXT)";
+            EmployeeEntry.COLUMN_EMPLOYEE_DESIGNATION + " TEXT,"+
+            EmployeeEntry.COLUMN_EMPLOYEE_ADDRESS + " TEXT)";
 
     /*
     * Query of creating another table
@@ -65,6 +66,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+
+        // please avoid this section if you dont want to control version change
+
         switch (oldVersion) {
             case 1:
                 db.execSQL(ADD_NEW_COLUMN);

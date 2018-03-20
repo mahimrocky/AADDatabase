@@ -34,7 +34,7 @@ public abstract class AppDatabase extends RoomDatabase {
         if (sInstance==null){
             sInstance =  Room.databaseBuilder(context,
                     AppDatabase.class, "AAD_Database")
-                    .addMigrations(MIGRATION1_2)
+                    .addMigrations(MIGRATION1_2) // please avoid this section if you dont want to control version change
                     .build();
         }
         return sInstance;
